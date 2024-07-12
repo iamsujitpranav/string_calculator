@@ -11,6 +11,16 @@ class StringCalculatorTest < Minitest::Test
     assert_equal "Invalid string", exception.message
   end
 
+  def test_invalid_input_newline_comma
+    exception = assert_raises(RuntimeError) { StringCalculator.add("1\n,2") }
+    assert_equal "Invalid string", exception.message
+  end
+
+  def test_invalid_input_ends_with_newline
+    exception = assert_raises(RuntimeError) { StringCalculator.add("1,2,\n") }
+    assert_equal "Invalid string", exception.message
+  end
+  
   def test_add_negative_numbers_raises_exception
     exception = assert_raises(RuntimeError) { StringCalculator.add("1,-2,3,-4") }
     assert_equal "Negative numbers not allowed: -2, -4", exception.message
