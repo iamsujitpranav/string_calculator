@@ -1,0 +1,2 @@
+class NegativeNumberValidator
+end
