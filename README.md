@@ -1,8 +1,10 @@
 1) clone the project with below command 
-   https://github.com/iamsujitpranav/string_calculator.git
+   git clone https://github.com/iamsujitpranav/string_calculator.git
+   
+3) git checkout master
 
-2) run gem install bundler 
+4) run gem install bundler 
 
-3) run bundle install
+5) run bundle install
 
-4) ruby run_tests.rb 
+6) ruby run_tests.rb 
