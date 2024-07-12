@@ -1,4 +1,5 @@
 require 'minitest/autorun'
+require_relative '../input_parser'
 
 class InputParserTest < Minitest::Test
   def test_default_delimiter
