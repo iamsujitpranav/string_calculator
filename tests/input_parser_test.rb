@@ -6,4 +6,9 @@ class InputParserTest < Minitest::Test
     parser = InputParser.new("1,2\n3")
     assert_equal /[\n,]/, parser.delimiter
   end
+
+  def test_custom_delimiter
+    parser = InputParser.new("//;\n1;2")
+    assert_equal /;/, parser.delimiter
+  end
 end
