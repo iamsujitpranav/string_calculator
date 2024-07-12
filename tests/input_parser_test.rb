@@ -11,4 +11,10 @@ class InputParserTest < Minitest::Test
     parser = InputParser.new("//;\n1;2")
     assert_equal /;/, parser.delimiter
   end
+
+  def test_invalid_input
+    parser = InputParser.new("1,\n2")
+    assert_raises(RuntimeError) { parser.numbers }
+  end
+  
 end
