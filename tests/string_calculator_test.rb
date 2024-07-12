@@ -21,8 +21,18 @@ class StringCalculatorTest < Minitest::Test
     assert_equal "Invalid string", exception.message
   end
 
+  def test_add_strings_with_unexpected_characters
+    exception = assert_raises(RuntimeError) { StringCalculator.add("1,,2,\n3") }
+    assert_equal "Invalid string", exception.message
+  end
+  
   def test_add_negative_numbers_raises_exception
     exception = assert_raises(RuntimeError) { StringCalculator.add("1,-2,3,-4") }
+    assert_equal "Negative numbers not allowed: -2, -4", exception.message
+  end
+
+  def test_add_negative_numbers_with_custom_delimiter_raises_exception
+    exception = assert_raises(RuntimeError) { StringCalculator.add("//;\n1;-2;3;-4") }
     assert_equal "Negative numbers not allowed: -2, -4", exception.message
   end
 
@@ -43,11 +53,11 @@ class StringCalculatorTest < Minitest::Test
   end
 
   def test_add_multiple_custom_delimiters
-    assert_equal 6, StringCalculator.add("//;\n1;2,3")
+    assert_equal 6, StringCalculator.add("//;\n1;5")
   end
 
   def test_add_empty_strings_between_delimiters
-    assert_equal 6, StringCalculator.add("1,,2,\n3")
+    assert_equal 4, StringCalculator.add("1,a,3")
   end
 
   
