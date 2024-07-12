@@ -56,7 +56,7 @@ class StringCalculatorTest < Minitest::Test
     assert_equal 6, StringCalculator.add("//;\n1;5")
   end
 
-  def test_add_empty_strings_between_delimiters
+  def test_add_character_between_numbers
     assert_equal 4, StringCalculator.add("1,a,3")
   end
 
